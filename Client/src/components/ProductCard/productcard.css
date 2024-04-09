@@ -1,0 +1,179 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  width: 20rem;
+  height: 30rem;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+
+  background-color: var(--main-light);
+  box-shadow: var(--shadow-hard-values);
+  cursor: pointer;
+}
+
+
+.card .card-img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
+  box-shadow: var(--shadow-soft-values);
+  transition: scale 0.4s ease;
+  -webkit-transition: scale 0.4s ease;
+  -moz-transition: scale 0.4s ease;
+  -ms-transition: scale 0.4s ease;
+  -o-transition: scale 0.4s ease;
+  margin-bottom: 1rem;
+}
+
+.card:hover >.card-img  {
+  scale: 0.9;
+  }
+
+.card .card-title {
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card .sub-title {
+  font-weight: 600;
+  color: var(--grey);
+}
+
+.card .card-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.card-btns-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.card-btns-wrapper-cart {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.card .card-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  height: 3rem;
+  background-color: var(--main-light);
+  color: var(--main-dark);
+  transition: background-color 0.6s ease, color 0.6s ease;
+  -webkit-transition: background-color 0.6s ease, color 0.6s ease;
+  -moz-transition: background-color 0.6s ease, color 0.6s ease;
+  -ms-transition: background-color 0.6s ease, color 0.6s ease;
+  -o-transition: background-color 0.6s ease, color 0.6s ease;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.home .card .card-btn {
+  border-radius: 1rem;
+  -webkit-border-radius: 1re;
+  -moz-border-radius: 1re;
+  -ms-border-radius: 1re;
+  -o-border-radius: 1re;
+}
+
+.card .card-btn-wishlist {
+  background-color: var(--red);
+  color: var(--main-light);
+}
+.card .card-btn-addtocart {
+  background-color: var(--green); 
+  color: var(--main-light);
+}
+.card .card-btn-addtocart,.card .card-btn-wishlist,.card .card-btn-show{
+  box-shadow: var(--shadow-soft-values);
+}
+.card .card-btn-addtocart,.card .card-btn-wishlist {
+  transition:font-size 0.4s ease;
+  -webkit-transition:font-size 0.4s ease;
+  -moz-transition:font-size 0.4s ease;
+  -ms-transition:font-size 0.4s ease;
+  -o-transition:font-size 0.4s ease;
+}
+
+.card .card-btn-addtocart:hover,.card .card-btn-wishlist:hover{
+  font-size: 1.8rem;
+}
+
+.card .card-btn-show:hover {
+  background-color: var(--main-dark);
+  color: var(--white);
+}
+
+.card .card-btn-purchase {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft-values);
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.card .card-btn-purchase:hover {
+  background-color: var(--main-dark);
+  color: var(--main-light);
+}
+
+.card .card-btn-minus {
+  background-color: var(--main-dark);
+  color: var(--main-light);
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+  box-shadow: -0.2rem 1rem 1.4rem rgba(0, 0, 0, 0.113),
+    -0.2rem -0.5rem 1.4rem rgba(0, 0, 0, 0.113);
+}
+
+.card .card-btn-minus:hover {
+  background-color: #eb455f;
+}
+
+.card .quantaty {
+  font-weight: 600;
+  font-size: 1.2rem;
+  box-shadow: 0rem 1rem 1.4rem rgba(0, 0, 0, 0.113),
+    0rem -0.5rem 1.4rem rgba(0, 0, 0, 0.113);
+}
+.card .card-btn-add {
+  background-color: var(--main-dark);
+  color: var(--main-light);
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  box-shadow: 0.2rem 1rem 1.4rem rgba(0, 0, 0, 0.113),
+    0.2rem -0.5rem 1.4rem rgba(0, 0, 0, 0.113);
+}
+.card .card-btn-add:hover {
+  background-color: #36ae7c;
+}

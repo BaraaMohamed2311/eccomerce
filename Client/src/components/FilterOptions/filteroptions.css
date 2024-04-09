@@ -1,0 +1,40 @@
+.filter-title{
+    margin: 1rem;
+    color: var(--main-dark);
+}
+
+.filter-li{
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition:background  0.4s ease;
+    -webkit-transition:background  0.4s ease;
+    -moz-transition:background  0.4s ease;
+    -ms-transition:background  0.4s ease;
+    -o-transition:background  0.4s ease;
+}
+
+.filter-li:hover{
+
+    background-color: var(--bg);
+}
+
+
+.filter-link{
+    padding: 0 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--main-dark);
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 1rem;
+    transition: color 0.4s linear;
+    -webkit-transition: color 0.4s linear;
+    -moz-transition: color 0.4s linear;
+    -ms-transition: color 0.4s linear;
+    -o-transition: color 0.4s linear;
+}

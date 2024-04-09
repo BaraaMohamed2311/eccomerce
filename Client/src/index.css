@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul li {
+  list-style: none;
+}
+
+:root {
+  --red: #f32241;
+  --green:#00be6f;
+  --main-dark :#1e232b ; 
+  --main-darkest :#13161b ; 
+  --main :#31363F ; 
+  --bg :#31363f2f ; 
+  --main-light: #EEEEEE;
+  --white: #ffff;
+  --shadow-hard-values: 0.2rem 1rem 1.4rem rgba(0, 0, 0, 0.15),
+    -0.2rem -0.5rem 1.4rem rgba(0, 0, 0, 0.15);
+  --shadow-soft-values: 0.2rem 1rem 1.4rem rgba(0, 0, 0, 0.08),
+    -0.2rem -0.5rem 1.4rem rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode {
+}
+
+
+body {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.06rem;
+  word-spacing: 0.1rem;
+  line-height: 2rem;
+  box-shadow: inset -1rem -1rem 2rem var(--shadow),
+    inset 1rem 1rem 2rem var (--shadow);
+  scroll-behavior: smooth;
+  background-color: var(--main-dark);
+  
+}
+
+
+h1 {
+  font-size: 2.6rem;
+}
+h2 {
+  font-size: 2.3rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.7rem;
+}
+h5 {
+  font-size: 1.4rem;
+}
+h6 {
+  font-size: 1.1rem;
+}
+
+.wrapper {
+  width: 85vw;
+  margin: 0 7.5vw;
+}
+
+.margin {
+  margin: 15rem 0;
+}

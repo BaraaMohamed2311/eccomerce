@@ -1,0 +1,6 @@
+.home{
+    padding-top: 6.5rem;
+    width: 100vw;
+    background-color: var(--main-light);
+    display: flex;
+}
