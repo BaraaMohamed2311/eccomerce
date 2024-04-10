@@ -14,6 +14,8 @@ import Movies from "./pages/Movies/Movies";
 import MoviePlayer from "./pages/MoviePlayer/MoviePlayer";
 import UserProfile from"./pages/UserProfile/UserProfile"
 import NotFound from "./pages/NotFound/NotFound"
+import { ToastContainer } from 'react-toastify';
+import WishList from "./pages/WishList/WishList";
 
 // You can do this:
 const router = createBrowserRouter(
@@ -27,6 +29,7 @@ const router = createBrowserRouter(
    <Route path="/private" element = { <PrivateRoute />} >
       <Route  element = { <NavBar />} >
         <Route path="/private/cart" element = { <Cart />} />
+        <Route path="/private/wishlist" element = { <WishList />} />
         <Route path="/private/movies" element = { <Movies />} />
         <Route path="/private/movies/movieplayer" element = { <MoviePlayer />} />
         <Route path="/private/profile" element = { <UserProfile />} />
@@ -38,12 +41,12 @@ const router = createBrowserRouter(
 );
 
 function App() {
-
+  
 
   return (
     <Provider store={store}>
-        <RouterProvider router={router}>
-        </RouterProvider>
+      <RouterProvider router={router} />
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </Provider>
 
     

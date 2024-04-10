@@ -11,12 +11,12 @@ const userDateSlice = createSlice({
         loggedIn:(state , action)=>{
             state.userData = action.payload
         },
-        editUser:(state , action)=>{
-            
+        updateUser:(state , action)=>{
+            state.userData = action.payload
         }
     }
 })
 
 export default userDateSlice.reducer;
 
-export const { loggedIn } = userDateSlice.actions;
+export const { loggedIn , updateUser } = userDateSlice.actions;

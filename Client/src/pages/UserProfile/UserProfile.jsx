@@ -1,21 +1,59 @@
 import { useRef, useState } from "react";
 import "./userprofile.css";
-import {useSelector , useDispatch} from"react-redux"
+import {useSelector , useDispatch } from"react-redux"
+import {updateUser} from "../../Redux/Slices/userData";
+import {toast} from "react-toastify"
+
 function UserProfile() {
-const user = useSelector(state => state.user.userData)
-const dispatch = useDispatch();
-// refrences 
+let [ isEditMode , setIsEditMode] = useState(false)
+const user = useSelector(state => state.user.userData);
+const dispatch = useDispatch()
+/***************refrences*****************/
 const newEmailREF = useRef();
 const NewPhoneREF = useRef();
 const NewAddressREF = useRef();
-let [ isEditMode , setIsEditMode] = useState(false)
-  function handleEditUserData(){
-    setIsEditMode(prev => !prev);
-    if(isEditMode){
-      // when we exit edit mode, in another words when editmode is false we save changes
-      console.log("refrences",newEmailREF.current.value,NewPhoneREF.current.value,NewAddressREF.current.value)
+/****************function********************/
+function handleEdit(){
+  setIsEditMode(prev => !prev);
+}
+function handleCancel(){
+  setIsEditMode(false);
+}
+
+ // Function to handle saving edits
+ function handleSave() {
+  const updatedUser = {
+    ...user,
+    email: newEmailREF.current.value,
+    phone: NewPhoneREF.current.value,
+    address: NewAddressREF.current.value
+  };
+  // updating data in db
+  fetch("api/user/update-user",{
+    mode:"cors",
+    method:"PUT",
+    headers:{
+      "Authorization":user.token,
+    },
+    body:JSON.stringify(updatedUser)
+  })
+  .then(res=> res.json())
+  .then(data=>{
+    if(data.success){
+      dispatch(updateUser(updatedUser)); // Dispatch action to update user data
+      setIsEditMode(false); // Exit edit mode
+      toast.success("User Data Updated")
     }
-  }
+    else{
+      toast.error("Failed to Update User Data")
+    }
+  }).catch(err=>{
+    console.error("Error updating user :",err);
+    toast.error("Error Updating Data")
+  })
+  
+}
+  /*************************/
   return (
     <div className="profilepage">
       <div className="userprofile">
@@ -25,10 +63,10 @@ let [ isEditMode , setIsEditMode] = useState(false)
               {
                 !isEditMode && 
                     <>
-                      <h1 className="username">Name : {user.username}</h1>
-                      <p className="user-p">Email : {user.email}</p>
-                      <p className="user-p">Phone : {user.phone || "Not Specified"}</p>
-                      <p className="user-p">Address : {user.address || "Not Specified"}</p>
+                      <p className="user-p"><span className="user-span">Name : </span> {user.username}</p>
+                      <p className="user-p"><span className="user-span">Email : </span> {user.email}</p>
+                      <p className="user-p"><span className="user-span">Phone : </span> {user.phone || "Not Specified"}</p>
+                      <p className="user-p"><span className="user-span">Address : </span> {user.address || "Not Specified"}</p>
                     </>
                 }
                 {
@@ -39,7 +77,6 @@ let [ isEditMode , setIsEditMode] = useState(false)
                       <span></span>
                       <label>New Username</label>
                     </div>
-                    <p className="user-p">Email : {user.email}</p>
                     <div className="txt_field">
                       <input ref={NewPhoneREF}  type="text" required />
                       <span></span>
@@ -53,7 +90,11 @@ let [ isEditMode , setIsEditMode] = useState(false)
                   </>
                 }
             </div>
-            <button onClick={handleEditUserData} className="editprofile">{!isEditMode? "Edit profile" : "Save Edits"}</button>
+            <div className="profile-btns">
+            {isEditMode && <button onClick={handleCancel} className="editprofile cancel"> Cancel </button>}
+            <button onClick={isEditMode ? handleSave : handleEdit} className="editprofile edit">{!isEditMode ? "Edit profile" : "Save Edits"}</button>
+              
+            </div>
           </div>
           
       </div>

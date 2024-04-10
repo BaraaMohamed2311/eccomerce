@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products:[],
-
+  wishlist:[],
 }
 const MaxNumOfProducts = 100 ;
 
 const CartSlice = createSlice({
-  name: 'cart',
+  name: 'productsState',
   initialState,
   reducers: {
     addToCart: (state , action)=>{
@@ -47,9 +47,15 @@ const CartSlice = createSlice({
 
           state.products = []
 
-}
+},
+  addToWishList:(state , action)=>{
+    const isExist = state.wishlist.find((prod)=>prod._id === action.payload._id);
+          if(!isExist)
+            state.wishlist.push(action.payload);
+
+  }
   }
 })
 
-export const {addToCart , increaseQuantity , decreaseQuantity , removeFromCart , EmptyCart} =CartSlice.actions
+export const {addToCart , addToWishList  , increaseQuantity , decreaseQuantity , removeFromCart , EmptyCart} =CartSlice.actions
 export default CartSlice.reducer

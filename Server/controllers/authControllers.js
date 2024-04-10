@@ -133,5 +133,27 @@ const ForgetPasswordController = async (req ,res)=>{
     }
 }
 
+const UpdateUserController = async (req , res)=>{
+    try{
+        const { username: newusername, address: newaddress, phone: newphone } = req.body;
 
-module.exports = { LoginController , RegisterController ,ForgetPasswordController}
+        if(newusername && newaddress && newphone){
+        const User = await UserModel.findByIdAndUpdate(
+            { email: req.body.email },{
+                username: newusername ,
+                address: newaddress,
+                phone:newphone}
+        );
+    }
+    }
+    catch (err){
+        console.log("Error While Updating User", err);
+        res.status(500).json({
+            success:false,
+            message:"Failed To Update User"
+        })
+    }
+}   
+
+
+module.exports = { LoginController , RegisterController ,ForgetPasswordController ,UpdateUserController}

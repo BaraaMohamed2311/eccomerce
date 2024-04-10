@@ -4,7 +4,8 @@ import "./filteroptions.css"
 import { Link } from "react-router-dom";
 function FilterOptions({filter}){
     // we create instance of current search params hook then we call it again to pass query params values
-    const editSearchParams = new useEditSearchParams();
+    const editSearchParams = new useEditSearchParams("SET");
+
 
     return (
         <>
