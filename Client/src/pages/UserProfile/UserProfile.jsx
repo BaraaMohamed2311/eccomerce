@@ -5,54 +5,45 @@ import {updateUser} from "../../Redux/Slices/userData";
 import {toast} from "react-toastify"
 
 function UserProfile() {
-let [ isEditMode , setIsEditMode] = useState(false)
 const user = useSelector(state => state.user.userData);
 const dispatch = useDispatch()
-/***************refrences*****************/
-const newEmailREF = useRef();
-const NewPhoneREF = useRef();
-const NewAddressREF = useRef();
-/****************function********************/
-function handleEdit(){
-  setIsEditMode(prev => !prev);
-}
-function handleCancel(){
-  setIsEditMode(false);
-}
+  // State to track which field is being edited
+  const [editField, setEditField] = useState(null);
+  // State to track the value being edited
+  const [editValue, setEditValue] = useState('');
 
- // Function to handle saving edits
- function handleSave() {
-  const updatedUser = {
-    ...user,
-    email: newEmailREF.current.value,
-    phone: NewPhoneREF.current.value,
-    address: NewAddressREF.current.value
-  };
-  // updating data in db
-  fetch("api/user/update-user",{
-    mode:"cors",
-    method:"PUT",
-    headers:{
-      "Authorization":user.token,
-    },
-    body:JSON.stringify(updatedUser)
-  })
-  .then(res=> res.json())
-  .then(data=>{
-    if(data.success){
-      dispatch(updateUser(updatedUser)); // Dispatch action to update user data
-      setIsEditMode(false); // Exit edit mode
-      toast.success("User Data Updated")
-    }
-    else{
-      toast.error("Failed to Update User Data")
-    }
-  }).catch(err=>{
-    console.error("Error updating user :",err);
-    toast.error("Error Updating Data")
-  })
+/****************function********************/
+
+const handleEditClick = (field) => {
+  setEditField(field);
+  setEditValue(user[field]);
+};
   
-}
+const handleInputChange = (e) => {
+  setEditValue(e.target.value);
+};
+
+const handleSaveClick = () => {
+  dispatch(updateUser({ ...user, [editField]: editValue }));
+  setEditField(null);
+};
+/****************Render field***********************/
+const renderField = (field) => {
+  if (editField === field) {
+    return (
+      <>
+        <input type="text" value={editValue} onChange={handleInputChange} />
+        <button className="userprofile-save" onClick={handleSaveClick}>Save</button>
+      </>
+    );
+  }
+  return (
+    <>
+      <span>{user[field]}</span>
+      <button className="userprofile-edit" onClick={() => handleEditClick(field)}>Edit</button>
+    </>
+  );
+};
   /*************************/
   return (
     <div className="profilepage">
@@ -60,40 +51,27 @@ function handleCancel(){
         <div className="userprofile-wrapper">
             <img className="userprofile-img" src={user.img || "/src/assets/user.webp"} alt="ecommerce-user-profile-image" />
             <div className="userprofile-info-wrapper">
-              {
-                !isEditMode && 
-                    <>
-                      <p className="user-p"><span className="user-span">Name : </span> {user.username}</p>
-                      <p className="user-p"><span className="user-span">Email : </span> {user.email}</p>
-                      <p className="user-p"><span className="user-span">Phone : </span> {user.phone || "Not Specified"}</p>
-                      <p className="user-p"><span className="user-span">Address : </span> {user.address || "Not Specified"}</p>
-                    </>
-                }
-                {
-                  isEditMode &&
-                  <>
-                  <div className="txt_field">
-                      <input ref={newEmailREF}  type="text" required />
-                      <span></span>
-                      <label>New Username</label>
-                    </div>
-                    <div className="txt_field">
-                      <input ref={NewPhoneREF}  type="text" required />
-                      <span></span>
-                      <label>New Phone Number</label>
-                    </div>
-                    <div className="txt_field">
-                      <input ref={NewAddressREF}  type="text" required />
-                      <span></span>
-                      <label>New Address</label>
-                    </div>
-                  </>
-                }
+
+            <div className="userprofile-field">
+              <label>Email: </label>
+              {renderField('email')}
             </div>
-            <div className="profile-btns">
-            {isEditMode && <button onClick={handleCancel} className="editprofile cancel"> Cancel </button>}
-            <button onClick={isEditMode ? handleSave : handleEdit} className="editprofile edit">{!isEditMode ? "Edit profile" : "Save Edits"}</button>
-              
+
+            <div className="userprofile-field">
+              <label>Name: </label>
+              {renderField('username')}
+            </div>
+
+            <div className="userprofile-field">
+              <label>Phone: </label>
+              {renderField('phone')}
+            </div>
+
+              <div className="userprofile-field">
+                <label>Address: </label>
+                {renderField('address')}
+              </div>
+
             </div>
           </div>
           

@@ -38,9 +38,7 @@ const CartSlice = createSlice({
 
     removeFromCart: (state , action)=>{
 
-          const isExist = state.products.find(item => item._id === action.payload._id)
-          if(!isExist)
-          state.products.filter( item => item._id !== action.payload._id)
+      state.products= state.products.filter( item => item._id !== action.payload._id)
 
     },
     EmptyCart: (state)=>{
@@ -53,9 +51,15 @@ const CartSlice = createSlice({
           if(!isExist)
             state.wishlist.push(action.payload);
 
-  }
+  },
+
+  removeFromWishList: (state , action)=>{
+
+    state.wishlist= state.wishlist.filter( item => item._id !== action.payload._id)
+
+},
   }
 })
 
-export const {addToCart , addToWishList  , increaseQuantity , decreaseQuantity , removeFromCart , EmptyCart} =CartSlice.actions
+export const {addToCart , addToWishList  , increaseQuantity , decreaseQuantity , removeFromCart ,removeFromWishList, EmptyCart} =CartSlice.actions
 export default CartSlice.reducer

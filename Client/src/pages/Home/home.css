@@ -1,6 +1,9 @@
 .home{
+    display: flex;
+    align-items: center;
+    gap: 6rem;
     padding-top: 6.5rem;
     width: 100vw;
-    background-color: var(--main-light);
-    display: flex;
+
+    background-color: var(--main-dark);
 }

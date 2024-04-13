@@ -6,6 +6,8 @@ export default function authCheck(token , setIsAccessible , location ,  navigate
     fetch("/api/user/auth-user", {
         mode: "cors",
         headers: {
+            
+            'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}` // Assuming you're using Bearer token
         }
     })
@@ -15,14 +17,13 @@ export default function authCheck(token , setIsAccessible , location ,  navigate
         if (data.success) {
             setIsAccessible(true);
             navigate(location)
-            console.log("private success")
         } else {
             setIsAccessible(false);
-            console.log("private failed")
+            console.error("privateRoute fetch failed")
         }
     })
     .catch(err => {
-        console.log("private err", err);
+        console.log("privateRoute fetch err", err);
         setIsAccessible(false);
 
     });

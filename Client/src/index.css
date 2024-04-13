@@ -22,7 +22,7 @@ ul li {
   --green:#00be6f;
   --main-dark :#1e232b ; 
   --main-darkest :#13161b ; 
-  --main :#31363F ; 
+  --main :#31363F; 
   --bg :#31363f2f ; 
   --main-light: #EEEEEE;
   --white: #ffff;
@@ -47,7 +47,7 @@ body {
     inset 1rem 1rem 2rem var (--shadow);
   scroll-behavior: smooth;
   background-color: var(--main-dark);
-  
+  min-height: 100vh;
 }
 
 

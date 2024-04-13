@@ -8,5 +8,6 @@ let filters = [
         
     }]
 
+let categories = ["Electronic" , "Body Care", "Movies" , "Tv Series","Clothes"]
 
-    export default  filters;
+    export   {filters , categories};

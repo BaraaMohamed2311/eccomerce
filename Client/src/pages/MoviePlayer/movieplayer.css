@@ -5,8 +5,8 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 120rem;
-  
+  height: fit-content;
+  padding-top: 8rem;
 }
 
 .movieplayer .playerbox {
@@ -14,122 +14,98 @@
   align-items: center;
   flex-direction: column;
   height: 100%;
-  border-radius: 4rem;
+  border-radius: 5rem;
   padding: 3rem;
-  background-color: var(--main-darkest);
+  background-color: var(--main-light);
   gap: 10rem;
   box-shadow: var(--shadow-hard-values);
-  -webkit-border-radius: 4rem;
-  -moz-border-radius: 4rem;
-  -ms-border-radius: 4rem;
-  -o-border-radius: 4rem;
+  -webkit-border-radius: 5rem;
+  -moz-border-radius: 5rem;
+  -ms-border-radius: 5rem;
+  -o-border-radius: 5rem;
   font-weight: 600;
 }
 
 .movieplayer .playerbox .video-el {
   width: 100%;
   height: 50rem;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+  box-shadow: var(--shadow-hard-values);
+}
+
+.movieplayer .playerbox .movie-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: var(--shadow-hard-values);
+  height: min-content;
+  padding: 2rem;
+  width: 100%;
+  height: fit-content;
+  margin-left: 2rem;
+  color: var(--main-dark);
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+}
+
+.movieplayer .playerbox .movie-img{
+  width: 15rem ;
+  aspect-ratio: auto;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft-values);
+}
+
+.movieplayer  .movie-textbox{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0 ;
+  gap: 1rem;
+  height: 100%;
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
-  box-shadow: var(--shadow-hard-values);
-}
-
-.movieplayer .playerbox .movie-info {
-  box-shadow: var(--shadow-hard-values);
-  height: min-content;
-  padding: 4rem 2rem;
-  width: 100%;
-  margin-left: 2rem;
-  color: var(--white);
-  background: var(--main-darkest);
-  background: rgb(55, 68, 96);
-  background: -moz-linear-gradient(
-    180deg,
-    rgba(55, 68, 96, 1) 0%,
-    rgba(33, 42, 62, 1) 54%,
-    rgba(17, 23, 34, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    180deg,
-    rgba(55, 68, 96, 1) 0%,
-    rgba(33, 42, 62, 1) 54%,
-    rgba(17, 23, 34, 1) 100%
-  );
-  background: linear-gradient(
-    180deg,
-    rgba(55, 68, 96, 1) 0%,
-    rgba(33, 42, 62, 1) 54%,
-    rgba(17, 23, 34, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#374460",endColorstr="#111722",GradientType=1);
-  border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
 }
 
 .playerbox .movie-info .movieplayer-link {
-  color: var(--white);
+  color: var(--main-dark);
+  margin: 0 0.2rem;
 }
 
 .playerbox .movie-info .movieplayer-link:hover {
-  color: var(--main);
+  color: var(--green);
 }
 
 .movieplayer .movie-info .movie-title {
   text-transform: capitalize;
-  padding: 1rem;
   margin-bottom: 2rem;
-  border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
 }
 
-.releas-dur-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 10rem;
-  margin: 1.5rem 0;
-}
 
-.movieplayer .releas-dur-wrapper > * {
+.movieleft , .movieright{
+  flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  width: 20rem;
-  height: 3rem;
-  background-color: var(--main);
-  color: var(--main-dark);
-  border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
-  box-shadow: var(--shadow-soft-values);
 }
 
-.movieplayer .playerbox .movie-info > *:not(:nth-child(1)) {
-  margin-left: 0.6rem;
-  margin-bottom: 0.6rem;
-}
-
-.playerbox .movie-info .movie-genre,
-.playerbox .movie-info .movie-cast {
+.left-right-wrapper{
   display: flex;
   gap: 1rem;
 }
 
-.playerbox .movie-info .smovie-country{
-  padding: 0 2rem;
-  
-  font-size: 1.2rem;
-}
- .playerbox .movie-info .storyline{
-  padding: 0 2rem;
+
+
+.movie-p{
+  display: flex;
+  width: fit-content;
+  white-space: nowrap;
 }

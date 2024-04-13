@@ -6,7 +6,7 @@ function    WishList (){
     
     return(
     <div className='cart'>
-        <CardsBox products={wishlist} isCart={false}/>
+        <CardsBox products={wishlist} isCart={false} isWishList = {true}/>
     </div>
     )
 }

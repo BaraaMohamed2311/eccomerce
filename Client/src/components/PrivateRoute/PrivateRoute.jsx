@@ -12,9 +12,7 @@ function PrivateRoute() {
     
 
     useEffect(() => {
-        console.log("runninguseeffect" , user.token,user)
         if (user.token) {
-            console.log("running auth check")
             authCheck(user.token , setIsAccessible ,location ,  navigate)
         } else {
             setIsAccessible(false);

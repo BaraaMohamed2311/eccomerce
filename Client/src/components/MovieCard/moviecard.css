@@ -9,7 +9,7 @@
   box-shadow: var(--shadow-hard-values);
   cursor: pointer;
   position: relative;
-  overflow: hidden;
+  overflow:hidden;
 }
 .movies .moviecard .moviecard-img {
   width: 100%;
@@ -31,9 +31,9 @@
 .movies .moviecard .info-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1rem;
   opacity: 0;
   pointer-events: none;
   position: absolute;
@@ -51,6 +51,43 @@
 }
 
 
+.movies .moviecard .moviecard-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.movies .moviecard .moviecard-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  width: fit-content;
+  height: 3rem;
+  padding: 1rem;
+  background-color: var(--main-dark);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  transition: background-color 0.6s ease, color 0.6s ease;
+  -webkit-transition: background-color 0.6s ease, color 0.6s ease;
+  -moz-transition: background-color 0.6s ease, color 0.6s ease;
+  -ms-transition: background-color 0.6s ease, color 0.6s ease;
+  -o-transition: background-color 0.6s ease, color 0.6s ease;
+  box-shadow: var(--shadow-soft-values);
+  color: var(--white);
+  cursor: pointer;
+}
+.movies .moviecard .moviecard-btn:hover {
+  background-color: var(--red);
+  color: var(--white);
+
+}
+
 
 .movies .moviecard:hover > .info-box {
   opacity: 1;
@@ -65,81 +102,3 @@
 
 
 
-.movies .moviecard .moviecard-title {
-  margin-top: 0.5rem;
-  font-size: 2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.movies .moviecard .sub-title {
-  font-weight: 600;
-}
-
-.movies .moviecard .moviecard-details {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-
-}
-
-.movies .moviecard-btns-wrapper {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.movies .moviecard .moviecard-btn {
-  flex: 1;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: 1px solid transparent;
-  height: 3rem;
-  padding: 1rem;
-  width: fit-content;
-  background-color: var(--main-dark);
-  border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
-  transition: background-color 0.6s ease, color 0.6s ease;
-  -webkit-transition: background-color 0.6s ease, color 0.6s ease;
-  -moz-transition: background-color 0.6s ease, color 0.6s ease;
-  -ms-transition: background-color 0.6s ease, color 0.6s ease;
-  -o-transition: background-color 0.6s ease, color 0.6s ease;
-  align-self: flex-end;
-  box-shadow: var(--shadow-soft-values);
-  color: var(--white);
-}
-
-.movies .moviecard .moviecard-btn:nth-of-type(1),
-.movies .moviecard .moviecard-btn:nth-of-type(3) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-weight: 600;
-  font-size: 1.6rem;
-}
-.movies .moviecard .moviecard-btn:hover {
-  background-color: var(--main);
-  color: var(--main-lightest);
-}
-/* 00be6f   f32241*/
-.movies .moviecard .moviecard-btn:nth-of-type(1):hover {
-  background-color: #f32241;
-  color: var(--main-lightest);
-}
-.movies .moviecard .moviecard-btn:nth-of-type(3):hover {
-  background-color: #00be6f;
-  color: var(--main-lightest);
-}
-
-.movies .moviecard .moviecard-btn:nth-of-type(2):hover {
-  background-color: var(--main-dark);
-  color: var(--white);
-}

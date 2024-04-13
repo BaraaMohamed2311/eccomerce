@@ -9,8 +9,8 @@ function MovieLists({ movies }) {
     <>
       <h2 className="list-title">Ready To Watch</h2>
       <div className="list">
-        {movies.map((card) => {
-          return <MovieCard key={card.title} movie={card} />;
+        {movies && movies.map((card) => {
+          return <MovieCard key={card._id} movie={card} />;
         })}
       </div>
     </>
