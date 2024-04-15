@@ -30,7 +30,7 @@ const LoginController = async (req ,res)=>{
                 {
                 success: true ,
                 user:{...userInfo , token},
-                message:"Login Success"
+                message:"Logged In Successfully"
             });
     }
     else{
@@ -135,22 +135,33 @@ const ForgetPasswordController = async (req ,res)=>{
 
 const UpdateUserController = async (req , res)=>{
     try{
-        const { username: newusername, address: newaddress, phone: newphone } = req.body;
-
-        if(newusername && newaddress && newphone){
-        const User = await UserModel.findByIdAndUpdate(
-            { email: req.body.email },{
-                username: newusername ,
-                address: newaddress,
-                phone:newphone}
+        // seperating email -for finding user- from the property to be edited
+        const {_id , ...editProperty}  = req.body; 
+        // destructing key and new value for updating
+        const [keyProperty , valueProperty] =  Object.entries(editProperty)[0];
+        if(keyProperty && valueProperty){
+        const UpdatedUser = await UserModel.findByIdAndUpdate(
+            { _id },{ [keyProperty]: valueProperty }
         );
+        console.log("UpdatedUser",UpdatedUser)
+        res.status(201).json({
+            success:true,
+            message:"Updated Successfully"
+        })
     }
+        else{
+            res.status(201).json({
+                success:true,
+                message:"Updated Successfully"
+            })
+        }
+
     }
     catch (err){
-        console.log("Error While Updating User", err);
+        console.log("Error Updating User", err);
         res.status(500).json({
             success:false,
-            message:"Failed To Update User"
+            message:"Error Updating User"
         })
     }
 }   

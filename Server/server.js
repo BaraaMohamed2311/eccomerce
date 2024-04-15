@@ -6,7 +6,8 @@ const mongoose = require("mongoose");
 const Colorize = require( "./config/errorColors");
 const authRouter = require("./routes/authRouter");
 const ProductsRouter = require("./routes/ProductsRouter")
-
+const dashboardRouter = require("./routes/dashboardRouter")
+const supportRouter = require("./routes/supportRouter")
 
 // dotenv config
 dotenv.config()
@@ -17,7 +18,8 @@ app.use(express.json())
 // Combining routes 
 app.use("/api/user", authRouter);
 app.use("/", ProductsRouter)
-
+app.use("/api/admin",dashboardRouter)
+app.use("/api/support", supportRouter)
 
 //connect DB
 mongoose.connect(process.env.MONGO_DB)

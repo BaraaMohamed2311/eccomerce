@@ -9,7 +9,7 @@ function Login() {
   let dispatch = useDispatch();
   let inputPasswordRef = useRef();
   let inputUserRef = useRef();
-  let [isFetching, setIsFetching] = useState(false);
+  let [LoginState, setLoginState] = useState("Login");
   /****************/
   function handleSubmit(e) {
     e.preventDefault(); // Prevent default reload
@@ -19,7 +19,7 @@ function Login() {
     };
 
     // Perform the fetch request
-    setIsFetching(true);
+    setLoginState("Submitting");
     fetch("/api/user/login", {
       method: "POST",
       mode: 'cors',
@@ -32,18 +32,19 @@ function Login() {
     .then(data => {
       if (data.success) {
         /*  toast */
-        toast.success("Logged in successfully!");
+        toast.success(data.message);
         dispatch(loggedIn(data.user)); // Update user context when data sent are correct
+        setLoginState("Successfull");
       } else {
         /*  toast */
         toast.error(data.message || "Login failed!");
+        setLoginState("Login Again");
       }
-      setIsFetching(false);
     })
-    .catch((e) => {
+    .catch((err) => {
         /*  toast */
-      toast.error("An error occurred during login!");
-      setIsFetching(false);
+      toast.error(err.message);
+      setLoginState("Login Again");
       console.error("Error during fetch operation:", e);
     });
   }
@@ -66,7 +67,8 @@ function Login() {
               <label>Password</label>
             </div>
             <div className="pass">Forgot Password?</div>
-            <button disabled={isFetching} type="submit" value="Login">{!isFetching ? "Login" : "Logging in..."}</button>
+            {/* disable button untill fetch is done*/}
+            <button disabled={LoginState === "Submitting"} type="submit" value="Login">{LoginState}</button>
             <div className="signup_link">
               Not a member? <a href="#">Signup</a>
             </div>

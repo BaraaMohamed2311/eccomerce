@@ -1,0 +1,30 @@
+
+.top-deals{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.users-list{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.users-list .user-data{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.users-list img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

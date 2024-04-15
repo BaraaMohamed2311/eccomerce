@@ -1,0 +1,38 @@
+.piechart-box{
+    width: 100%;
+    height: 100%;
+}
+
+.pie-sections{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pie-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    gap: 10px;
+}
+
+.pie-section .title{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} 
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.pie-section .item{
+    font-weight: 600;
+}

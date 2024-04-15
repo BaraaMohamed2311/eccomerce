@@ -1,0 +1,98 @@
+.single {
+    display: flex;
+}
+
+
+.single .view{
+    flex: 1;
+}
+
+.single .activities{
+    flex: 1;
+}
+
+
+.single button{
+    background: rgb(255, 38, 0);
+}
+
+.single .info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.single .top-info{
+    display: flex;
+    gap: 5rem;
+    flex: 1;
+    
+}
+
+.single .bottom-info{
+    flex: 1;
+}
+
+.single .top-info h1{
+    font-size: 1.6rem;
+}
+
+
+
+.single .bottom-info .chart {
+    margin-top: 150px;
+    width: 80%;
+    height: 100%;
+}
+
+
+.single .activities h2{
+    margin-bottom: 20px;
+    
+}
+
+.single .activities ul{
+    border-left: 2px solid  rgba(255, 99, 71, 0.784);
+    padding: 0 250px 0 11.5px;
+    
+}
+
+.single .activities li{
+    position: relative;
+    list-style: none;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 99, 71, 0.784);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.activities li div{
+    min-width: 480px;
+    
+}
+
+.single .activities li::before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background-color: rgba(255, 99, 71, 0.784);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.single .activities li p{
+    font-weight: bold;
+}
+
+.single .activities li time{
+
+    color: rgba(212, 212, 212, 0.839);
+}

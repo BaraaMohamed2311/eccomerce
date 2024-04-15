@@ -1,0 +1,38 @@
+.chartbox{
+    display: flex;
+    height: 100%;
+}
+
+
+
+.box-info , .chart-info{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box-info{
+    flex: 2;
+}
+
+.chart-info{
+    flex: 2;
+}
+.chart{
+    height: 50%;
+}
+
+.percent , .duration{
+    align-self: flex-end;
+    font-weight: bold;
+}
+
+.percent{
+    color: green;
+}
+
+.chart-link{
+    color: white;
+    font-weight: bolder;
+}

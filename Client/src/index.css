@@ -47,7 +47,12 @@ body {
     inset 1rem 1rem 2rem var (--shadow);
   scroll-behavior: smooth;
   background-color: var(--main-dark);
-  min-height: 100vh;
+}
+
+.root{
+  height: 100%;
+  width: 100%;
+  padding-top: 6.5rem;
 }
 
 

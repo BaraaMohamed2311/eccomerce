@@ -1,53 +1,65 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: red;
   width: 20rem;
-  height: 30rem;
+  height: fit-content;
+  min-height: 30rem;
+  gap: 0.3rem;
   border-radius: 2rem;
-  padding: 1.5rem;
+  padding: 1rem 1rem 1.5rem 1rem;
   -webkit-border-radius: 2rem;
   -moz-border-radius: 2rem;
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
-
   background-color: var(--main-light);
   box-shadow: var(--shadow-hard-values);
   cursor: pointer;
 }
 
 
-.card .card-img {
+
+.card .imgbox  {
   width: 100%;
-  height: 75%;
+  height: 18rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.imgbox  .card-img{
+  width: 100%;
   object-fit: cover;
-  border-radius: 1rem 1rem 0 0;
-  -webkit-border-radius: 1rem 1rem 0 0;
-  -moz-border-radius: 1rem 1rem 0 0;
-  -ms-border-radius: 1rem 1rem 0 0;
-  -o-border-radius: 1rem 1rem 0 0;
-  box-shadow: var(--shadow-soft-values);
   transition: scale 0.4s ease;
   -webkit-transition: scale 0.4s ease;
   -moz-transition: scale 0.4s ease;
   -ms-transition: scale 0.4s ease;
   -o-transition: scale 0.4s ease;
-  margin-bottom: 1rem;
+  border-radius: 1rem 1rem 0 0;
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
 }
 
-.card:hover >.card-img  {
+.card:hover >.imgbox .card-img  {
   scale: 0.9;
+  }
+
+  .card-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 12rem;
+
   }
 
 .card .card-title {
   margin-top: 0.5rem;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .card .sub-title {
-  font-weight: 600;
   color: var(--grey);
   opacity: 0.7;
   font-size: 1rem;
@@ -59,7 +71,6 @@
   align-items: center;
   font-size: 1.1rem;
   font-weight: 600;
-  margin: 0.2rem 0 0.8rem 0;
 }
 .card-btns-wrapper {
   display: flex;
@@ -130,7 +141,7 @@
   color: var(--white);
 }
 
-.card .card-btn-purchase {
+.card .card-btn-remove {
   font-weight: 600;
   font-size: 1.2rem;
   margin-right: 0.5rem;
@@ -141,9 +152,11 @@
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
+  background-color: var(--red);
+  color: var(--white);
 }
 
-.card .card-btn-purchase:hover {
+.card .card-btn-remove:hover {
   background-color: var(--main-dark);
   color: var(--main-light);
 }

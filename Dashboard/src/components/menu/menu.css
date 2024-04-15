@@ -1,0 +1,39 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 15%;
+    padding: 4.5rem 0 0 2rem;
+}
+
+.menu .item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu .link{
+    color: white;
+    display: flex;
+    gap: 10px;
+}
+
+.menu .link .list-icon{
+    font-size: 1.3rem;
+}
+
+.menu .link:hover{
+    background-color: rgba(193, 193, 193, 0.269);
+}
+
+.list-title{
+    color: white;
+    
+}
+
+.title{
+    color: rgb(187, 187, 187);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+

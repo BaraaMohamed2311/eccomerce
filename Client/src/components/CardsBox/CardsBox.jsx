@@ -1,14 +1,17 @@
 import "./cardsbox.css"
 import ProductCard from "../ProductCard/ProductCard"
 import {useLocation} from "react-router-dom"
-function CardsBox({products , isCart , isWishList}){
+function CardsBox({products , isCart , isWishList , currpage}){
     let  MinPrice, MaxPrice;
     // getting query params object from current route location
-    const queryParams = useLocation().search;
+    const location = useLocation().search;
     // convert it into object using URLSearchParams then making it iterable using fromEntries
-    const queryParamsObj = Object.fromEntries(new URLSearchParams(queryParams));
+    //const queryParamsObj = Object.fromEntries(new URLSearchParams(location));
+    const queryParams =new URLSearchParams(location).toString();
     // filteredProducts
-    const filteredProducts = Array.from(products).filter((product)=>{
+    console.log("products products",products)
+    /*
+    const filteredProducts = products? products.filter((product)=>{
         // destucting price range
             if(queryParamsObj.Prices){
                 const [Min , Max] = queryParamsObj.Prices.split(" - ");
@@ -21,17 +24,16 @@ function CardsBox({products , isCart , isWishList}){
             // if filter parameters exist we do filtering if not we set conditions true to accept all items
             const PriceCondition = MinPrice && MaxPrice ? product.price >= MinPrice && product.price <= MaxPrice : true  ;
             const RatingCondition = queryParamsObj.Rating ?  product.rating >= parseInt(queryParamsObj.Rating)  : true;
-            return PriceCondition && RatingCondition
-
-    })
+            const CategCondition =  queryParamsObj.categ ? queryParamsObj.categ === product.category  : true;
+            return PriceCondition && RatingCondition && CategCondition ;}) : 0 ;*/
     return(
         <div className="cardbox">
-            {filteredProducts && filteredProducts.map((product)=>{
+            {products && products.map((product)=>{
                 return ( 
-                    <ProductCard key={product._id}  product={product} isCart={isCart} isWishList={isWishList}/>
+                    <ProductCard key={product._id} currpage ={currpage} product={product} isCart={isCart} isWishList={isWishList}/>
                 )
             })}
-            {filteredProducts.length === 0 && 
+            {!products && 
             <h1 className="noitems">No Items Found</h1>}
         </div>
     )

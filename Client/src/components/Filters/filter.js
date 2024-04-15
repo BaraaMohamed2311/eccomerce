@@ -8,6 +8,6 @@ let filters = [
         
     }]
 
-let categories = ["Electronic" , "Body Care", "Movies" , "Tv Series","Clothes"]
+let categories = ["Electronics" , "Self Care", "Movies" , "Tv Series","Clothes"]
 
     export   {filters , categories};

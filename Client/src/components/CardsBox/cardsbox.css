@@ -2,6 +2,7 @@
     width: 100%;
     height: fit-content;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
     padding: 2rem 0;

@@ -16,6 +16,9 @@ import UserProfile from"./pages/UserProfile/UserProfile"
 import NotFound from "./pages/NotFound/NotFound"
 import { ToastContainer } from 'react-toastify';
 import WishList from "./pages/WishList/WishList";
+import Support from "./pages/Support/Supports";
+import CheckOut from "./pages/CheckOut/CheckOut";
+import ProductShowCase from "./pages/ProductShowCase/ProductShowCase";
 
 // You can do this:
 const router = createBrowserRouter(
@@ -23,8 +26,8 @@ const router = createBrowserRouter(
     <>
     <Route path="/" element={<NavBar />} >
         <Route index element = { <Home />} />
-        
-        
+        <Route path="/support" element = { <Support />} />
+        <Route path="/showcase/:id" element = { <ProductShowCase />} />
     </Route>
    <Route path="/private" element = { <PrivateRoute />} >
       <Route  element = { <NavBar />} >
@@ -34,6 +37,10 @@ const router = createBrowserRouter(
         <Route path="/private/movies/movieplayer" element = { <MoviePlayer />} />
         <Route path="/private/profile" element = { <UserProfile />} />
       </Route>
+    </Route>
+
+    <Route path="/private" element = { <PrivateRoute />} >
+        <Route path="/private/checkout" element = { <CheckOut />} />
     </Route>
     <Route path="*" element = { <NotFound />} />
     </>

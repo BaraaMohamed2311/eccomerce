@@ -11,6 +11,6 @@ const HomeProducts_Schema = new mongoose.Schema({
     Show_case:{type:Object},
 
     
-},{timestamps:true,collection:"HomeProducts"})
+},{timestamps:true,collection:"Products"})
 
 module.exports = mongoose.model("HomeProducts",HomeProducts_Schema);

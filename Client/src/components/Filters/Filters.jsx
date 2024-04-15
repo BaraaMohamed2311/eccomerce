@@ -5,6 +5,7 @@ import useEditSearchParams from "../../hooks/useEditSearchParams";
 import { Link } from "react-router-dom";
 function Filter(){
     const clearSearchParams = new useEditSearchParams("CLEAR");
+    const editSearchParams = new useEditSearchParams("SET");
     return (
         <div className="filter">
             {filters.map((filter)=>{
@@ -14,7 +15,7 @@ function Filter(){
             })}
             <div className="categories">
             {categories.map((categ)=>{
-                return <Link className="category" key={categ} >{categ}</Link>
+                return <Link onClick={()=>editSearchParams("categ" , categ)} className="category" key={categ} >{categ}</Link>
             })}
             </div>
             <button onClick={()=>clearSearchParams()}className="clearAllFilters">Clear All Filters</button>

@@ -25,7 +25,17 @@ function MoviePlayer() {
         <div className="playerbox wrapper">
           {movie && 
           <>
-            <video controls autoPlay className='video-el' src="">Video player is  not supported</video>
+            <iframe 
+            className='video-el'
+            width="1280" 
+            height="720" 
+            src="https://www.youtube.com/embed/uLtkt8BonwM" 
+            title="The Last of Us | Official Trailer | Max" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              Video is not supported
+            </iframe>
             <div className="movie-info">
                 <img className="movie-img" alt='Movie Image at Movie Player Page' src={movie.img} />
                 <div className="movie-textbox">

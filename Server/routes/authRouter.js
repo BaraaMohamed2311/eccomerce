@@ -9,7 +9,7 @@ router.post("/register",RegisterController)
 router.put("/forgetpassword",ForgetPasswordController);
 
 // Update User Data
-router.put("/update-user",UpdateUserController);
+router.put("/update-user", jwtVerify  ,UpdateUserController);
 
 // Authenticate Token 
 router.get("/auth-user",jwtVerify , (req,res)=>{

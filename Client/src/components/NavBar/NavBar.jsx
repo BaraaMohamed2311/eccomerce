@@ -23,7 +23,7 @@ function NavBar() {
                     <Link data-link={"Wishlist"} to={"/private/wishlist"} className="nav-li nav-icon"><ion-icon name="heart-outline"></ion-icon></Link>
                     <Link data-link={"Cart"} to ={"/private/cart"} className="nav-li nav-icon"><ion-icon name="cart-outline"></ion-icon></Link>
                     <Link data-link={"Profile"} to={"/private/profile"} className="nav-li nav-icon"><ion-icon name="person-outline"></ion-icon></Link>
-                    <Link data-link={"Support"} to={"/private/support"} className="nav-li nav-icon"><ion-icon name="chatbox-outline"></ion-icon></Link>
+                    <Link data-link={"Support"} to={"/support"} className="nav-li nav-icon"><ion-icon name="chatbox-outline"></ion-icon></Link>
                 </div>
 
                 <div onClick={handleClick} id="collapse-nav">

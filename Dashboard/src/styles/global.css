@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+:root{
+    --main: #24272c;
+    --text:#fff;
+    --sec:#F2E7D5;
+}
+
+body{
+    color: var(--text);
+    overflow: hidden;
+    font-weight: 600;
+}
+
+
+
+
+.layout{
+    background-color:var(--main);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.main-content{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3.5rem;
+    height: calc(100vh - 6.5rem); /*6.5 is nav height*/
+}
