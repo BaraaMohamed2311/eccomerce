@@ -15,63 +15,34 @@ function FilterOptions({filter}){
                     { filter.title !== "Rating" &&
                         filter.options.map((option)=>{
                             return(
-                                <li onClick={()=>editSearchParams(filter.title , option)} className="filter-li" key={option}>
-                                    <Link className="filter-link">{option}</Link>
+                                <li onClick={()=>editSearchParams(filter.title , option.value)} className="filter-li" key={option.key}>
+                                    <Link className="filter-link">{option.value}</Link>
                                 </li>
                             )
                         })
                     }
             {/*if it's  a rating replace withs stars*/}
                     {
-                        filter.title === "Rating" &&
-                        <>
-                        <li className="filter-li" >
-                            <Link onClick={()=>editSearchParams(filter.title , 1)} className="stars filter-link">
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                            </Link>
-                        </li>
-                        <li className="filter-li" >
-                            <Link onClick={()=>editSearchParams(filter.title , 2)} className="stars filter-link">
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                            </Link>
-                        </li>
-                        <li className="filter-li" >
-                            <Link onClick={()=>editSearchParams(filter.title , 3)} className="stars filter-link">
-                            <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                            </Link>
-                        </li>
-                        <li className="filter-li">
-                            <Link onClick={()=>editSearchParams(filter.title , 4)} className="stars filter-link">
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}}  name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                            </Link>
-                        </li>
-                        <li className="filter-li" >
-                            <Link onClick={()=>editSearchParams(filter.title , 5)} className="stars filter-link">
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                                <ion-icon style={{color:"#ceaf00"}} name="star"></ion-icon>
-                            </Link>
-                        </li>
-                        </>
+                        filter.title === "Rating" && filter.options.map((option)=>{
+                        
+                            return(
+                            <li key={option.key} className="filter-li" >
+                                <Link onClick={()=>editSearchParams(filter.title , option.value)} className="stars filter-link">
+                                    {option.colors.map((color)=>{
+                                        return (
+                                            <ion-icon key={color.colorKey} style={{color:color.colorVal}} name="star"></ion-icon>
+                                        )
+                                    })}
+                                </Link>
+                            </li>
+                        )
+                        })
                     }
+                    <div className="categories">
+                        { filter.title === "categories" && filter.options.map((option)=>{
+                            return <Link onClick={()=>editSearchParams("categ" , option.value)} className="category" key={option.key} >{option.value}</Link>
+                        })}
+                    </div>
                 </ul>
         </>
             )
