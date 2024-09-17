@@ -1,11 +1,11 @@
 import "./filter.css";
 import {filters} from "./filter";
 import FilterOptions from "../FilterOptions/FilterOptions";
-import useEditSearchParams from "../../hooks/useEditSearchParams";
-import { Link } from "react-router-dom";
+import { useQueryContext } from "../../Contexts/queryContext";
+
 function Filter(){
-    const clearSearchParams = new useEditSearchParams("CLEAR");
-    const editSearchParams = new useEditSearchParams("SET");
+    const {setQueryState} = useQueryContext();
+    
     return (
         <div className="filter">
             {filters.map((filter)=>{
@@ -13,8 +13,8 @@ function Filter(){
                     <FilterOptions key={filter.title} filter={filter} />
                 )
             })}
-            
-            <button onClick={()=>clearSearchParams()}className="clearAllFilters">Clear All Filters</button>
+            {/* we delete all filter properties except the current page value*/}
+            <button onClick={()=> setQueryState(prev =>{return {currpage :prev.currpage}})} className="clearAllFilters">Clear All Filters</button>
         </div>
     )
 }

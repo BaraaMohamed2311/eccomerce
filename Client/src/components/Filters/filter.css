@@ -1,13 +1,13 @@
 .filter{
-    width: 15%;
-    height: max-content;
+    top: 7rem;
+    position: fixed;
+    width: 20rem;
+    padding: 2rem;
     background-color: var(--main-light);
-    padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-shadow: var(--shadow-hard-values);
-    gap: 2rem;
     border-radius: 0.2rem;
     -webkit-border-radius: 0.2rem;
     -moz-border-radius: 0.2rem;
@@ -16,30 +16,7 @@
 }
 
 
-.categories{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
 
-.category{
-    width: fit-content;
-    padding: 0.5rem 1rem;
-    background-color: var(--bg);
-    color: var(--main-dark);
-    font-weight: 600;
-    transition: 0.4s ease;
-    -webkit-transition: 0.4s ease;
-    -moz-transition: 0.4s ease;
-    -ms-transition: 0.4s ease;
-    -o-transition: 0.4s ease;
-}
-
-.category:hover{
-    background-color: var(--main-dark);
-    color: var(--white);
-
-}
 
 .clearAllFilters{
     width: 100%;
@@ -63,7 +40,7 @@
     -moz-transition: 0.4s ease;
     -ms-transition: 0.4s ease;
     -o-transition: 0.4s ease;
-
+    margin-top: 1rem;
 }
 
 .clearAllFilters:hover{

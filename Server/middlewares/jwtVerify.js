@@ -9,7 +9,7 @@ async function jwtVerify(req , res , next){
         next();
     }
     catch (err ) {
-        console.log("error inside jwt verify", next);
+        console.log("error inside jwt verify", err);
         res.status(401).json({success:false, message : `Error while verifying token${err}` })
     }
 

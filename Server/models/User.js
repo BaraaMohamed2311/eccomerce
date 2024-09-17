@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const User_Schema = new mongoose.Schema({
     
-    username:{type:String, required:true, unique:true},
+    username:{type:String, required:true},
     email:{type:String, required:true, unique:true},
     password:{type:String, required:true},
     phone: {type:String },
@@ -11,6 +11,8 @@ const User_Schema = new mongoose.Schema({
     img:{type:String , default: ""},
     cartItems:{type:Object , default: ""},
     isAdmin:{type:Boolean , default:false},
+    resetPassToken:{type:String},
+    resetPassTokenCreatedAt:{type:Date},
     createdAt:{type:Date},
     updatedAt:{type:Date}
     

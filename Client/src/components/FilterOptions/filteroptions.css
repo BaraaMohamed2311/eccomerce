@@ -1,11 +1,15 @@
 .filter-title{
-
+    font-size: 1.6rem;
     color: var(--main-dark);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--main-dark);
 }
 
 .filter-li{
-    padding: 0.6rem;
-    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
     cursor: pointer;
     transition:background  0.4s ease;
     -webkit-transition:background  0.4s ease;
@@ -14,13 +18,42 @@
     -o-transition:background  0.4s ease;
 }
 
+.categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg);
+    color: var(--main-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space:nowrap;
+    transition: 0.4s ease;
+    -webkit-transition: 0.4s ease;
+    -moz-transition: 0.4s ease;
+    -ms-transition: 0.4s ease;
+    -o-transition: 0.4s ease;
+}
+
+.category:hover{
+    background-color: var(--main-dark);
+    color: var(--white);
+
+}
+
 .filter-li:hover{
     background-color: var(--bg);
 }
 
 
 .filter-link{
-    padding: 0 1rem;
     font-weight: 600;
     font-size: 1.2rem;
     color: var(--main-dark);

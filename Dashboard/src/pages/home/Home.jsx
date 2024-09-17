@@ -16,8 +16,6 @@ function Home(){
     // fetching users data & updating context 
     useFetchAllUsers("token",setallUsersData);
     useFetchAllProducts("token",setallProductsData)
-    console.log("allUsersData from context",allUsersData);
-    console.log("allProductsData from context",allProductsData)
     return(
         <div className="home">
 

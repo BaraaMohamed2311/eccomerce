@@ -17,7 +17,7 @@ app.use(express.json())
 
 // Combining routes 
 app.use("/api/user", authRouter);
-app.use("/", ProductsRouter)
+app.use("/api/products", ProductsRouter)
 app.use("/api/admin",dashboardRouter)
 app.use("/api/support", supportRouter)
 
@@ -36,3 +36,4 @@ app.listen(PORT , (err)=>{
     if(err) console.log(err);
     console.log("Server is running at ",PORT);
 })
+

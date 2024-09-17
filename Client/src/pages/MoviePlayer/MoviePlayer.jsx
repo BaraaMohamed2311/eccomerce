@@ -15,9 +15,6 @@ function MoviePlayer() {
   const movie = usermovies.filter((movie)=>{
     return location.state === movie._id
   })[0] ;
-  console.log("Movie state:", movie);
-
-  console.log("genreee",  movie)
 
   
     return (
@@ -31,9 +28,9 @@ function MoviePlayer() {
             height="720" 
             src="https://www.youtube.com/embed/uLtkt8BonwM" 
             title="The Last of Us | Official Trailer | Max" 
-            frameborder="0" 
+            frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            referrerPolicy="strict-origin-when-cross-origin" allowfullscreen>
               Video is not supported
             </iframe>
             <div className="movie-info">

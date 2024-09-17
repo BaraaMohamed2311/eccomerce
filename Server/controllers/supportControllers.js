@@ -1,9 +1,10 @@
-const {mailSupportHelpers} = require("../helpers/mailSupportHelpers");
+const mailHelpers = require("../helpers/mailHelpers");
 
 const mailSupportController =async (req,res)=>{
         const {email , ticket , text} =req.body;
         try{
-            const isSent =await mailSupportHelpers(email , ticket , text);
+            //(SendFrom , SendTo , subject , text)
+            const isSent =await mailHelpers(email ,"baraamohamed2311@gmail.com", ticket , text);
             console.log("issent ",isSent)
             if(isSent){
                 res.json({
@@ -29,4 +30,4 @@ const mailSupportController =async (req,res)=>{
     
 }
 
-module.exports = {mailSupportController}
+module.exports = mailSupportController

@@ -4,7 +4,7 @@ import { loggedIn } from "../../Redux/Slices/userData";
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Link } from "react-router-dom";
 function Login() {
   let dispatch = useDispatch();
   let inputPasswordRef = useRef();
@@ -66,11 +66,11 @@ function Login() {
               <span></span>
               <label>Password</label>
             </div>
-            <div className="pass">Forgot Password?</div>
+            <div className="pass"><Link to={"/forgot-password"}>Forgot Password?</Link></div>
             {/* disable button untill fetch is done*/}
             <button disabled={LoginState === "Submitting"} type="submit" value="Login">{LoginState}</button>
             <div className="signup_link">
-              Not a member? <a href="#">Signup</a>
+              Not a member? <Link to={"/signup"}>Signup</Link>
             </div>
           </form>
         </div>

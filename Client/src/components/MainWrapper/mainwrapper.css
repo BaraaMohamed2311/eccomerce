@@ -1,7 +1,8 @@
 .mainbox{
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 100%;
     align-items: center;
     gap: 1rem;
+    padding-left: 15%;
 }

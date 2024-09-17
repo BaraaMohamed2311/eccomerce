@@ -1,40 +1,40 @@
+/* eslint-disable react/prop-types */
 
 import { useEffect, useState } from "react";
-import fetchNextElements from "./fetchNextElements";
+import fetchNextElements from "../../helper/fetchNextElements";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux"
-import {useLocation} from "react-router-dom"
+import { useLocation, useSearchParams } from "react-router-dom";
 import "./pagination.css";
-
+import {useQueryContext}  from "../../Contexts/queryContext";
+import {toast} from "react-toastify";
+import useEditUrlSearchParams from "../../hooks/useEditUrlSearchParams";
 function Pagination({  currpage , setCurrPage}){
-    
-    let [isFetching , setIsFetching] = useState(false)
-    const location = useLocation().search;
-    // convert it into object using URLSearchParams then making it iterable using fromEntries
-    //const queryParamsObj = Object.fromEntries(new URLSearchParams(location));
-    const queryParams =new URLSearchParams(location).toString();
-    // getting fetchedproducts state 
-    const fetchedProduct = useSelector((state)=>state.fetchedProducts.fetchedProducts);
-    const dispatch = useDispatch();
+  let {queryState,setQueryState} = useQueryContext()
+  let [isFetching , setIsFetching] = useState(false);
+
+  /*****************************/
+
     const pagesize = 8;
+    const MaxPages = 99;
+    
+    /*  changing currpage state depending on currpage */
     function handleMinus(){
         if(currpage > 1)
         setCurrPage(prev => prev - 1)
     }
     function handlePlus(){
-        if(currpage < pagesize)
+        if(currpage < MaxPages)
         setCurrPage(prev => prev + 1)
     }
-
+    /**********************************************/
     useEffect(()=>{
-      /* the idea is to fetch potions of products
-       because fetching all will slower the process */
-       // we check if current page has been fetched before or not
-       console.log("updated fetched products ",fetchedProduct)
-       if(!fetchedProduct[currpage]){
-          fetchNextElements(queryParams,currpage ,pagesize, setIsFetching  , dispatch)
-      }
+        // changing query state currpage property to hold number of current page & size
+        setQueryState(prev=>{return {...prev , pagesize : pagesize ,currpage:currpage }})
     },[currpage])
+    /**********************************************/
+    
+
 
   return (
     <div className="pagination">

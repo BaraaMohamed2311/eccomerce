@@ -8,10 +8,10 @@ function MainWrapper(){
 
     let [currpage , setCurrPage] = useState(1);
     const fetchedProduct = useSelector((state)=>state.fetchedProducts.fetchedProducts);
-return (
+    return (
     <div className="mainbox">
         {/* we pass fetchedproducts of current page  */}
-        <CardsBox currpage={currpage} products = {fetchedProduct[currpage]} isCart={false}/>
+        <CardsBox currpage={currpage} products = {fetchedProduct} isCart={false}/>
         <Pagination currpage={currpage} setCurrPage={setCurrPage} />
     </div>
 )

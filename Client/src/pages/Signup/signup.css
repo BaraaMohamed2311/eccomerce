@@ -1,28 +1,39 @@
-.login{
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+.signup {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 25rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: var(--shadow-hard-values);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+
+.signup .signup-box{
+    width: 70rem;
+    height: 40rem;
+    background-color: var(--main-light);
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem ;
 }
-  .center h1{
-    text-align: center;
-    padding: 20px 0;
-    border-bottom: 1px solid silver;
-  }
-  .center form{
+
+.signup .signup-box  .signup-left,.signup .signup-box  .signup-right{
+    width: 50%;
+    height: 100%;
+}
+
+.signup .signup-box  .signup-right{
+    background: var(--main-dark);
+    padding: 2rem;
+    border-top-right-radius:1rem ;
+    border-bottom-right-radius:1rem ;
+}
+
+
+.center form{
     padding: 0 40px;
     box-sizing: border-box;
   }
@@ -39,7 +50,12 @@
     border: none;
     background: none;
     outline: none;
-    
+    color: white;
+  }
+
+  .txt_field input:focus,
+  .txt_field input:valid{
+    background-color: var(--main);
   }
   .txt_field label{
     position: absolute;
@@ -58,13 +74,15 @@
     left: 0;
     width: 0%;
     height: 2px;
-background: var(--main-dark);
+    background: var(--main-dark);
     transition: .5s;
   }
   .txt_field input:focus ~ label,
   .txt_field input:valid ~ label{
-    top: -5px;
-    color: var(--main-dark);
+    top: -15px;
+    color: white;
+    font-weight: 700;
+    
   }
   .txt_field input:focus ~ span::before,
   .txt_field input:valid ~ span::before{
@@ -103,10 +121,9 @@ background: var(--main-dark);
     color: #666666;
   }
   .signup_link Link{
-color: var(--main-dark);
+    color: var(--main-dark);
     text-decoration: none;
   }
   .signup_link Link:hover{
     text-decoration: underline;
   }
-  

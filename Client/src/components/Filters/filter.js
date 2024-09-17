@@ -10,14 +10,16 @@ let filters = [
     {
         title:"Rating",
         options:[
-            {key:1,value:1,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"black"},{colorKey:3,colorVal:"black"},{colorKey:4,colorVal:"black"}]},
-            {key:2,value:2,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"#FFC700"},{colorKey:3,colorVal:"black"},{colorKey:4,colorVal:"black"}]},
-            {key:3,value:3,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"#FFC700"},{colorKey:3,colorVal:"#FFC700"},{colorKey:4,colorVal:"black"}]},
-            {key:4,value:4,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"#FFC700"},{colorKey:3,colorVal:"#FFC700"},{colorKey:4,colorVal:"#FFC700"}]}]
+            {key:1,value:1,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"black"},{colorKey:3,colorVal:"black"},{colorKey:4,colorVal:"black"}, {colorKey:5,colorVal:"black"}]},
+            {key:2,value:2,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"#FFC700"},{colorKey:3,colorVal:"black"},{colorKey:4,colorVal:"black"}, {colorKey:5,colorVal:"black"}]},
+            {key:3,value:3,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"#FFC700"},{colorKey:3,colorVal:"#FFC700"},{colorKey:4,colorVal:"black"}, {colorKey:5,colorVal:"black"}]},
+            {key:4,value:4,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"#FFC700"},{colorKey:3,colorVal:"#FFC700"},{colorKey:4,colorVal:"#FFC700"},{colorKey:5,colorVal:"black"}]},
+            {key:5,value:5,colors:[{colorKey:1,colorVal:"#FFC700"},{colorKey:2,colorVal:"#FFC700"},{colorKey:3,colorVal:"#FFC700"},{colorKey:4,colorVal:"#FFC700"},{colorKey:5,colorVal:"#FFC700"}]}
+        ]
         
     },
     {
-        title:"categories",
+        title:"Categories",
         options:[
             {key:1,value:"Electronics"} , 
             {key:2,value:"Self Care"}, 

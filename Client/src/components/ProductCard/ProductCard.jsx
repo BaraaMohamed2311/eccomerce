@@ -24,6 +24,7 @@ function Card({product ,isCart ,isWishList , currpage}){
             {/* Card in Home Buttons*/}
            {!isCart && !isWishList && <div className="card-btns card-btns-wrapper">
             <button onClick={()=>dispatch(addToWishList(product))} className="card-btn card-btn-wishlist"><ion-icon name="heart-outline"></ion-icon></button>
+            {/* We cache currpage with us for going back */}
             <Link to={`/showcase/${product._id}?currpage=${currpage}`} className="card-btn card-btn-show">Show</Link>
             {/* we add cartQuantity property to product to store it in redux state */}
             <button onClick={()=>dispatch(addToCart(product))}   className="card-btn card-btn-addtocart"><ion-icon name="add-outline"></ion-icon></button>

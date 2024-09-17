@@ -46,7 +46,7 @@ body {
   box-shadow: inset -1rem -1rem 2rem var(--shadow),
     inset 1rem 1rem 2rem var (--shadow);
   scroll-behavior: smooth;
-  background-color: var(--main-dark);
+  background-color: var(--main-darkest);
 }
 
 .root{

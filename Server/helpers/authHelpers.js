@@ -34,15 +34,5 @@ const CreateToken =  (createBy , expiration)=>{
 } 
 
 
-const IgnorePassword =  (user)=>{
-    try{
-        const {password , ...restInfo } = user ; 
-      return  restInfo
-    }
-    catch (err){
-        console.log("Error While IgnorePassword  " , err)
-    }
 
-} 
-
-module.exports = { hashPassword , CheckPassword , CreateToken , IgnorePassword}
+module.exports = { hashPassword , CheckPassword , CreateToken }
